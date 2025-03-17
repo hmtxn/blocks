@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{8CE3E5BC-9367-44FD-93B2-03CD9A236323}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>BESBlocks.Revit</RootNamespace>
+        <AssemblyName>BESBlocks.Revit</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="RevitAPI">
+          <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="RevitAPIUI">
+          <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Common\Enums\PlaneIntersectionResult.cs" />
+        <Compile Include="Common\Extensions\BoundingBoxXYZExtensions.cs" />
+        <Compile Include="Common\Extensions\ConnectorSetExtensions.cs" />
+        <Compile Include="Common\Extensions\CurveExtensions.cs" />
+        <Compile Include="Common\Extensions\ElementExtensions.cs" />
+        <Compile Include="Common\Extensions\LineExtensions.cs" />
+        <Compile Include="Common\Extensions\MEPCurveExtensions.cs" />
+        <Compile Include="Common\Extensions\PlaneExtensions.cs" />
+        <Compile Include="Common\Extensions\UnitExtensions.cs" />
+        <Compile Include="Common\Extensions\XYZExtensions.cs" />
+        <Compile Include="Common\MEPCurvePair.cs" />
+        <Compile Include="Common\MEPCurveSorter.cs" />
+        <Compile Include="Common\XYZEqualityComparer.cs" />
+        <Compile Include="Creation\KickBuilder.cs" />
+        <Compile Include="Creation\TrimBuilder.cs" />
+        <Compile Include="Creation\OffsetBuilder.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Selection\MEPCurveSelection.cs" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
